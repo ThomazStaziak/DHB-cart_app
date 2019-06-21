@@ -13,7 +13,7 @@ mongoose.connect(`mongodb+srv://${env.DB_USER}:${env.DB_PASS}@${env.DB_CONN}`, {
     useNewUrlParser: true
 })
 
-app.use(require('./routes'))
 app.use(cors())
+app.use(require('./routes'))
 
 server.listen(env.PORT)
