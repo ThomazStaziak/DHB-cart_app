@@ -8,13 +8,40 @@ module.exports = {
     },
 
     async store(req, res) {
-        const { name, value } = req.body
+        const { nome, valor } = req.body
 
         const product = await Cart.create({
-            name, 
-            value
+            nome, 
+            valor
         })
+
+        return res.json(product)
+    },
+
+    async increaseQuantity(req, res) {
+        const product = await Cart.findById(req.params.id)
+        
+        if (product.quantidade == 10)
+            return
+
+        ++product.quantidade
+        
+        product.save()
+
+        return res.json(product)
+    },
+
+    async decreaseQuantity(req, res) {
+        const product = await Cart.findById(req.params.id)
+
+        if (product.quantidade == 1)
+            return 
+        
+        --product.quantidade
+
+        product.save()
 
         return res.json(product)
     }
 }
+ 
