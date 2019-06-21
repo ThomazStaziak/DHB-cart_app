@@ -1,8 +1,12 @@
 const mongoose = require('mongoose')
 
 const CartSchema = new mongoose.Schema({
-    name: String,
-    value: Number,
+    nome: String,
+    valor: Number,
+    quantidade: {
+        type: Number,
+        default: 1
+    }
 })
 
 module.exports = mongoose.model('Cart', CartSchema)
