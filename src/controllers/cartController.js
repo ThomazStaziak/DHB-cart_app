@@ -2,7 +2,7 @@ const Cart = require('../models/Cart')
 
 module.exports = {
     async index(req, res) {
-        const products = await Cart.find()
+        const products = await Cart.find().sort('-createdAt')
 
         return res.json(products)
     },
