@@ -17,7 +17,7 @@ class CreateProdutosTable extends Migration
             $table->bigIncrements('id');
             $table->string('nome');
             $table->bigInteger('valor');
-            $table->bigInteger('quantidade');
+            $table->bigInteger('quantidade')->default(1);
             $table->timestamps();
         });
     }

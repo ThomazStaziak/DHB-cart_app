@@ -10,7 +10,7 @@ class ProdutoController extends Controller
 {
     public function index()
     {
-        $products = Produto::all();
+        $products = Produto::orderBy('created_at', 'DESC')->get();
 
         return $products;
     }

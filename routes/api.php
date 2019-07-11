@@ -19,6 +19,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/listar-produtos', array('middleware' => 'cors', 'uses' => 'Api\ProdutoController@index'));
 Route::post('/adicionar-produtos', array('middleware' => 'cors', 'uses' => 'Api\ProdutoController@store'));
-Route::get('/aumentar-quantidade/:id', array('middleware' => 'cors', 'uses' => 'Api\ProdutoController@increaseQuantity'));
-Route::get('/diminuir-quantidade/:id', array('middleware' => 'cors', 'uses' => 'Api\ProdutoController@decreaseQuantity'));
-Route::get('/deletar-produtos', array('middleware' => 'cors', 'uses' =>'Api\ProdutoController@truncate'));
+Route::get('/aumentar-quantidade/{id}', array('middleware' => 'cors', 'uses' => 'Api\ProdutoController@increaseQuantity'));
+Route::get('/diminuir-quantidade/{id}', array('middleware' => 'cors', 'uses' => 'Api\ProdutoController@decreaseQuantity'));
+Route::delete('/deletar-produtos', array('middleware' => 'cors', 'uses' =>'Api\ProdutoController@truncate'));
